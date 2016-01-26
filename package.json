@@ -1,0 +1,19 @@
+{
+  "name": "css-complexity",
+  "version": "1.0.0",
+  "description": "helps to write more manageable css by analizing your code complexity and suggesting where best to refactor",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tafkanator/css-complexity.git"
+  },
+  "author": "Taavi Sangel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tafkanator/css-complexity/issues"
+  },
+  "homepage": "https://github.com/tafkanator/css-complexity#readme"
+}
