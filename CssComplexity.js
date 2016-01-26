@@ -25,14 +25,14 @@ class CssComplexity {
 		});
 	}
 
-	parseSelectors(str) {
-		// find all css rules ({...}) and replace them with comma
+	parseSelectors(string) {
+		const regex = /{(.|[\r\n])+?}/g; // match braces with content between them, eg "{color: red}"
 
-		str = str.replace(/{(.|[\r\n])+?}/g, ',');
-
-		// split between comma char and add it to array
-
-		str.split(',').forEach(this.analyzeSelector.bind(this));
+		// split rules and analyze each of them
+		string
+			.replace(regex, ',')
+			.split(',')
+			.forEach(this.analyzeSelector.bind(this));
 
 		console.log('result', this.selectors);
 	}
@@ -41,14 +41,13 @@ class CssComplexity {
 		selector = selector.trim();
 
 		// ignore media query rules for now
-
 		const firstChar = selector.charAt(0);
 
 		if (firstChar === '@' || firstChar === '}') {
 			return;
 		}
 
-		// update selectors data
+		// update or add selectors data
 
 		if (selector in this.selectors) {
 			this.selectors[selector].occurrences += 1;
